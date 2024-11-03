@@ -1,6 +1,7 @@
 import { assets } from "@/assets/assets";
 import Sidebar from "@/components/AdminComponents/Sidebar";
 import Image from "next/image";
+import { Toaster } from 'sonner'
 
 export default function Layout({ children }) {
     return (
@@ -17,6 +18,7 @@ export default function Layout({ children }) {
                         />
                     </div>
                     {children}
+                    <Toaster position='top-center' richColors visibleToasts={2} expand={true} />
                 </div>
             </div>
         </>
