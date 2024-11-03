@@ -23,7 +23,7 @@ const Page = ({ params }) => {
     useEffect(() => {
         fetchBlogData();
     },)
-    return ( data?<>
+    return (data ? <>
         <div className="bg-gray-200 py-5 px-5 md:px-12 lg:px-28">
             <div className="flex justify-between items-center">
                 <Link href={"/"}>
@@ -35,7 +35,7 @@ const Page = ({ params }) => {
             </div>
             <div className="text-center my-24">
                 <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">{data.title}</h1>
-                <Image 
+                <Image
                     src={data.author_img}
                     className="mx-auto mt-6 border border-white rounded-full"
                     width={60}
@@ -46,7 +46,7 @@ const Page = ({ params }) => {
             </div>
         </div>
         <div className="mx-5 max-w-[800px] md:mx-auto mt-[-100px] mb-10">
-            <Image 
+            <Image
                 src={data.image}
                 className="border-4 border-white"
                 width={1280}
@@ -77,7 +77,7 @@ const Page = ({ params }) => {
             </div>
         </div>
         <Footer />
-    
+
     </> : <></>
     )
 }
