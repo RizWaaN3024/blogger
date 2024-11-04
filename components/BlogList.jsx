@@ -6,7 +6,7 @@ import axios from 'axios';
 const BlogList = () => {
     
     const [menu, setMenu] = useState("All");
-    const [blog, setBlogs] = useState([]);
+    const [blogs, setBlogs] = useState([]);
 
     const fetchBlogs = async () => {
         const response = await axios.get("/api/blog");
@@ -27,9 +27,9 @@ const BlogList = () => {
                 <button onClick={() => setMenu('Lifestyle')} className={menu === "Lifestyle" ?  `bg-black text-white py-1 px-4 rounded-sm transition-all ease-in` : ''}>Lifestyle</button>
             </div>
             <div className="flex flex-wrap justify-around gap-1 gap-y-10 mb-16 xl:mx-24">
-                {blog_data.filter((item) => menu==="All" ? true : item.category===menu).map((item, index) => {
+                {blogs.filter((item) => menu==="All" ? true : item.category===menu).map((item, index) => {
                     return (
-                        <BlogItem id={item.id} image={item.image} title={item.title} description={item.description} category={item.category} key={index} />
+                        <BlogItem id={item._id} image={item.image} title={item.title} description={item.description} category={item.category} key={index} />
                     )
                 })}
             </div>
