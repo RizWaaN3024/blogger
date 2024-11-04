@@ -11,12 +11,15 @@ const LoadDB = async () => {
 
 LoadDB();
 
+// Api endpoint for fetching blogs
 export async function GET(request) {
     console.log("Blog GET Hit")
 
-    return NextResponse.json({msg: "Hello Api working"})
+    const blogs = await BlogModel.find({})
+    return NextResponse.json({blogs})
 }
 
+// Api endpoint for uploading blogs
 export async function POST(request) {
 
     const formData = await request.formData();

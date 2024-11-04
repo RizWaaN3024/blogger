@@ -36,7 +36,15 @@ const Page = () => {
 
         const response = await axios.post('/api/blog', formData);
         if (response.data.success) {
-            toast.success(response.data.message)
+            toast.success(response.data.msg)
+            setImage(false);
+            setData({
+                title: "",
+                description: "",
+                category: "Startup",
+                author: "Alex Bennett",
+                authorImg: "/author_img.png"
+            })
         } else {
             toast.error("Error");
         }
