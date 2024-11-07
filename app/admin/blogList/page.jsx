@@ -2,6 +2,7 @@
 import BlogTableItems from '@/components/AdminComponents/BlogTableItems'
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
+import { toast } from 'sonner'
 
 const page = () => {
 
@@ -11,6 +12,16 @@ const page = () => {
         const response = await axios.get('/api/blog');
 
         setBlogs(response.data.blogs)
+    }
+
+    const deleteBlogs = async (mongoId) => {
+        const response = await axios.delete('/api/blog', {
+            params: {
+                id: mongoId
+            }
+        })
+        toast.success(response.data.msg);
+        fetchBlogs();
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -43,7 +54,7 @@ const page = () => {
                     <tbody>
                         {blogs.map((item, index) => {
                             return (
-                                <BlogTableItems key={index} mongoId={item._id} title={item.title} author={item.author} authorImg={item.authorImg} date={item.date} />
+                                <BlogTableItems key={index} mongoId={item._id} title={item.title} author={item.author} authorImg={item.authorImg} date={item.date} deleteBlogs={deleteBlogs} />
                             )
                         })}
                     </tbody>
