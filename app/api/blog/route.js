@@ -24,7 +24,6 @@ export async function GET(request) {
         const blogs = await BlogModel.find({})
         return NextResponse.json({blogs})
     }
-
 }
 
 // Api endpoint for uploading blogs
