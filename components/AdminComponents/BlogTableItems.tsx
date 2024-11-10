@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 
 const BlogTableItems = ({ authorImg, title, author, date, deleteBlogs, mongoId  }) => {
-
     const blogDate = new Date(date);
     return (
         <tr className="bg-white border-b">
