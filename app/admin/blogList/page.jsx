@@ -23,7 +23,6 @@ const page = () => {
         toast.success(response.data.msg);
         fetchBlogs();
     }
-
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
         fetchBlogs();
