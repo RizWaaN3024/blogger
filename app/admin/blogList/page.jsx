@@ -4,8 +4,8 @@ import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { toast } from 'sonner'
 
-const page = () => {
 
+const page = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [blogs, setBlogs] = useState([]);
     const fetchBlogs = async () => {
@@ -26,7 +26,6 @@ const page = () => {
     useEffect(() => {
         fetchBlogs();
     }, [])
-
     return (
         <div className="flex-1 pt-5 px-5 sm:pt-12 sm:pl-16">
             <h1>All Blogs</h1>
